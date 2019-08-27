@@ -1,0 +1,22 @@
+<nav *ngIf='!isMobile' class="navbar navbar-light  justify-content-between" style="background-color:#5e5d5d;">
+    <div style="width:100%" class="row">
+            <div class="col-10 col-sm-10 col-md-10 col-lg-10 col-xl-10"></div>
+            <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"><h6 style="color:#fff">Usuario</h6></div>
+            <div style="cursor:pointer" (click)="logout()" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"><h6 style="color:#fff">Cerrar sesión</h6></div>
+  </div>
+  </nav>
+  <nav *ngIf='isMobile' class="effect1 navbar navbar-light navbar-expand-lg  justify-content-between"  style="width: 100%; position: fixed; z-index: 100; background-color:#262626;">
+  
+            
+              <button style="margin-right:3%" class="navbar-toggler" type="button" (click)="toggleNavbar()">
+                  <span style="color:rgb(194, 192, 192) !important" class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse show" [ngClass]="{ 'show': navbarOpen }">
+                <ul class="navbar-nav mr-auto">
+                    <li class="lista nav-item">
+                            <h6  style="text-align: center; color:gray" class="ses" (click)="logout()"> Cerrar sesión </h6>
+                    </li>
+                </ul>
+              </div>
+              
+  </nav>
