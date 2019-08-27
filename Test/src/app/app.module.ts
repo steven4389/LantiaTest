@@ -18,6 +18,7 @@ import { UserService } from './services/user.service';
 import { NgxSpinnerModule } from "ngx-spinner";
 
 import { LoginRegisterComponent } from './components/login-register/login-register.component'
+import { UrlPipe } from './private/pipes/url.pipe'
 
 
 
@@ -25,7 +26,8 @@ import { LoginRegisterComponent } from './components/login-register/login-regist
   declarations: [
     AppComponent,
     MainComponentComponent,
-    LoginRegisterComponent
+    LoginRegisterComponent,
+    UrlPipe
   ],
   imports: [
     NgxSpinnerModule,
@@ -34,6 +36,7 @@ import { LoginRegisterComponent } from './components/login-register/login-regist
     DeviceDetectorModule.forRoot(),
     FormsModule,
     HttpClientModule,
+    
   ],
   providers: [AuthenticationService, AuthGuardService, UserService],
   bootstrap: [AppComponent]

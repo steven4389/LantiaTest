@@ -29,10 +29,12 @@
 <br>
 <div class="container">
     <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Escribe aquí tu búsqueda" aria-label="Recipient's username" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button">Buscar</button>
-        </div>
+        
+            <input name="valores" [(ngModel)]="valores" type="text" class="form-control" placeholder="Escribe aquí tu búsqueda" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button  (click)="buscar()" class="btn btn-outline-secondary" type="button">Buscar</button>
+            </div>
+        
     </div>
 
     <div class="row">
@@ -43,19 +45,15 @@
         </div>
         <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
             <div>
-                    <div *ngFor="let video of videos" class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-0 shadow vh-50">
-                            <a href="https://www.youtube.com/watch?v={{video.id.videoId}}" target="_blank">
-                            <img [src]="video.snippet.thumbnails.medium.url" class="card-img-top" alt="..."></a>
-                            <div class="card-body text-center">
-                            <h5 class="card-title mb-0">
-                            <a href="https://www.youtube.com/watch?v={{video.id.videoId}}">{{video.snippet.title}}
-                            </a></h5>
-                            <div class="card-text text-black-50">{{video.snippet.description.slice(0, 100)}}</div>
-                            <p class="card-text">{{video.snippet.description}}</p>
+                    <div class="row">
+                            <div class="card col-md-12 col-sm-12 col-lg-12"  *ngFor="let item of videos">
+                              <iframe class="card-img-top" width="320" height="180" [src]="item.id.videoId | url:'https://www.youtube.com/embed/'" frameborder="0" allowfullscreen></iframe>
+                              <div class="card-body">
+                                <h4 class="card-title">{{item.snippet.title}}</h4>
+                                <p class="card-text">{{item.snippet.description}}</p>
+                              </div>
                             </div>
-                            </div>
-                            </div>
+                    </div>
             </div>
         </div>
     </div>

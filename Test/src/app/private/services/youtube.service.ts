@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,15 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class YoutubeService {
 
-  apiKey : string = 'YOUR-APIKEY-YOUTUBE';
+  public url : string = "https://www.googleapis.com/youtube/v3/search"
 
-  constructor(public http: HttpClient) { }
+  constructor(public _http: HttpClient) { }
 
-    getVideosForChanel(channel, maxResults): Observable<Object> {
-    let url = 'https://www.googleapis.com/youtube/v3/search?key=' + this.apiKey + '&channelId=' + channel + '&order=date&part=snippet &type=video,id&maxResults=' + maxResults
-    return this.http.get(url)
-      .pipe(map((res) => {
-        return res;
-      }))
+  buscare(valores: string) : Observable<any>{
+    let uri = `${this.url}?part=snippet&maxResults=5&q=${valores}&key=AIzaSyABraf_a99NkRhOnjbbALmz9fUi_VynXmA`;
+    return this._http.get<any>(uri);
   }
 }
