@@ -39,14 +39,24 @@
 
     <div class="row">
         <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8">
-            <div>
-
+            <div style="padding-right: 0.5rem;">
+                    <div class="row">
+                            <div style="margin-bottom: 1rem" class="card col-md-12 col-sm-12 col-lg-12"  *ngFor="let item of mArticles">
+                                       
+                              <div style="padding-top: 0.5rem;"  class="card-body">
+                                    <h4 class="card-title">{{item.title}} </h4>
+                                    <img style="width: 100%; height: 15rem;" mat-card-image class="img-article" src={{item.urlToImage}} alt="">
+                                <p class="card-text">{{item.description}}</p>
+                              </div>
+                            </div>
+                            
+                    </div>
             </div>
         </div>
         <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
             <div>
                     <div class="row">
-                            <div class="card col-md-12 col-sm-12 col-lg-12"  *ngFor="let item of videos">
+                            <div style="padding-top: 0.5rem; margin-bottom: 1rem"  class="card col-md-12 col-sm-12 col-lg-12"  *ngFor="let item of videos">
                               <iframe class="card-img-top" width="320" height="180" [src]="item.id.videoId | url:'https://www.youtube.com/embed/'" frameborder="0" allowfullscreen></iframe>
                               <div class="card-body">
                                 <h4 class="card-title">{{item.snippet.title}}</h4>
