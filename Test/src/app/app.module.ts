@@ -15,6 +15,8 @@ import { MainComponentComponent } from './private/components/main-component/main
 import { AuthenticationService } from './services/authentication.service'
 import {AuthGuardService} from './services/auth-guard.service';
 import { UserService } from './services/user.service';
+import { NgxSpinnerModule } from "ngx-spinner";
+
 import { LoginRegisterComponent } from './components/login-register/login-register.component'
 
 
@@ -26,6 +28,7 @@ import { LoginRegisterComponent } from './components/login-register/login-regist
     LoginRegisterComponent
   ],
   imports: [
+    NgxSpinnerModule,
     BrowserModule,
     AppRoutingModule,
     DeviceDetectorModule.forRoot(),

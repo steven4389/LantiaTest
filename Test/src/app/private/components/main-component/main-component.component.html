@@ -1,7 +1,7 @@
 <nav *ngIf='!isMobile' class="navbar navbar-light  justify-content-between" style="background-color:#5e5d5d;">
     <div style="width:100%" class="row">
             <div class="col-10 col-sm-10 col-md-10 col-lg-10 col-xl-10"></div>
-            <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"><h6 style="color:#fff">Usuario</h6></div>
+            <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"><h6 style="color:#fff">{{username}}</h6></div>
             <div style="cursor:pointer" (click)="logout()" class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"><h6 style="color:#fff">Cerrar sesión</h6></div>
   </div>
   </nav>
@@ -13,6 +13,9 @@
               </button>
               <div class="collapse navbar-collapse show" [ngClass]="{ 'show': navbarOpen }">
                 <ul class="navbar-nav mr-auto">
+                        <li class="lista nav-item">
+                                <h6  style="text-align: center; color:gray" class="ses" (click)="logout()"> {{username}} </h6>
+                        </li>
                     <li class="lista nav-item">
                             <h6  style="text-align: center; color:gray" class="ses" (click)="logout()"> Cerrar sesión </h6>
                     </li>
@@ -20,3 +23,41 @@
               </div>
               
   </nav>
+
+
+<br>
+<br>
+<div class="container">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Escribe aquí tu búsqueda" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">Buscar</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+            <div>
+
+            </div>
+        </div>
+        <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+            <div>
+                    <div *ngFor="let video of videos" class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-0 shadow vh-50">
+                            <a href="https://www.youtube.com/watch?v={{video.id.videoId}}" target="_blank">
+                            <img [src]="video.snippet.thumbnails.medium.url" class="card-img-top" alt="..."></a>
+                            <div class="card-body text-center">
+                            <h5 class="card-title mb-0">
+                            <a href="https://www.youtube.com/watch?v={{video.id.videoId}}">{{video.snippet.title}}
+                            </a></h5>
+                            <div class="card-text text-black-50">{{video.snippet.description.slice(0, 100)}}</div>
+                            <p class="card-text">{{video.snippet.description}}</p>
+                            </div>
+                            </div>
+                            </div>
+            </div>
+        </div>
+    </div>
+
+</div>
